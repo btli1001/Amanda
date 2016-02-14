@@ -16,7 +16,7 @@
     <!-- iPhone 6 Plus icon -->
     <link href="icon.png" sizes="120x120" rel="apple-touch-icon-precomposed">
     <!-- iPhone 6 Plus portrait startup image -->
-    <link href="startup.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" rel="apple-touch-startup-image">
+    <link href="startup .png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" rel="apple-touch-startup-image">
     <!-- style -->
     <style type="text/css">
     	body,div,h1,h2,h3,h4,h5,p,img,a,ol {
@@ -94,12 +94,12 @@
 <body>
 
 	<header>
-		<img src="header_bg.jpg">
+		<img src="http://placehold.it/750">
 		<h1>Happy Valentine's Day</h1>
 	</header>
 
 	<div id="action">
-		<a id="call" href="tel:18621579857"></a>
+		<a id="call" href="tel:10086"></a>
 		<a id="message" href="weixin://"></a>
 	</div>
 
@@ -109,6 +109,29 @@
 		var screenWidth = screen.width + "px"
 		var header = document.getElementsByTagName("header")[0]
 		header.style.height = screenWidth
+		var title = document.getElementsByTagName("h1")[0]
+		var headerBg = document.getElementsByTagName("img")[0]
+		var phoneNumber = document.getElementById("call")
+
+		function loadJSON(file, callback) {   
+			var xobj = new XMLHttpRequest();
+			xobj.overrideMimeType("application/json");
+			xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
+			xobj.onreadystatechange = function () {
+			      if (xobj.readyState == 4 && xobj.status == "200") {
+			        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+			        callback(xobj.responseText);
+			      }
+			};
+			xobj.send(null);
+		}
+
+		loadJSON("data.json", function(response) {
+	        var json = JSON.parse(response);
+	        headerBg.src = json.headerBg
+	        title.innerHTML = json.headerTitle
+	        phoneNumber.href = json.phoneNumber
+	    });
 	</script>
 
 </body>
