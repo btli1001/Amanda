@@ -148,6 +148,7 @@
 	</div>
 
 	<script type="text/javascript">
+		document.ontouchmove = function(e) {e.preventDefault()};
 		var screenWidth = screen.width + "px"
 		var header = document.getElementsByTagName("header")[0]
 		header.style.height = screenWidth
