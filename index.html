@@ -142,6 +142,25 @@
 	        title.innerHTML = json.headerTitle
 	        phoneNumber.href = json.phoneNumber
 	    });
+
+	    var standalone = window.navigator.standalone,
+	    userAgent = window.navigator.userAgent.toLowerCase(),
+	    safari = /safari/.test( userAgent ),
+	    ios = /iphone|ipod|ipad/.test( userAgent );
+
+	if( ios ) {
+	    if ( !standalone && safari ) {
+	        //browser
+	        alert("browser")
+	    } else if ( standalone && !safari ) {
+	        //standalone
+	        alert("standalone")
+	    } else if ( !standalone && !safari ) {
+	        //uiwebview
+	    };
+	} else {
+	    //not iOS
+	};
 	</script>
 
 </body>
