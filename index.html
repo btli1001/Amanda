@@ -97,6 +97,33 @@
 			text-align: center;
 			margin-top: 66px;
 		}
+
+		#download {
+			background-color: rgba(0,0,0,0.9);
+			width: 100%;
+			height: 1334px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 100;
+			display: none;
+		}
+
+		#download img {
+			display: block;
+			border-radius: 40px;
+			width: 20%;
+			margin: 40% auto 0 auto;
+		}
+
+		#download p {
+			color: white;
+			font-family: PingFangSC-Thin;
+			font-weight: bold;
+			font-size: 14px;
+			text-align: center;
+			margin-top: 10px;
+		}
     </style>
 </head>
 <body>
@@ -115,6 +142,11 @@
 
 	<footer>Automan❤️Amanda</footer>
 
+	<div id="download">
+		<img src="icon.png">
+		<p>添加到主屏幕</p>
+	</div>
+
 	<script type="text/javascript">
 		var screenWidth = screen.width + "px"
 		var header = document.getElementsByTagName("header")[0]
@@ -122,6 +154,7 @@
 		var title = document.getElementsByTagName("h1")[0]
 		var headerBg = document.getElementsByTagName("img")[0]
 		var phoneNumber = document.getElementById("call")
+		var download = document.getElementById("download")
 
 		function loadJSON(file, callback) {   
 			var xobj = new XMLHttpRequest();
@@ -143,24 +176,28 @@
 	        phoneNumber.href = json.phoneNumber
 	    });
 
+		//differ browser
 	    var standalone = window.navigator.standalone,
 	    userAgent = window.navigator.userAgent.toLowerCase(),
 	    safari = /safari/.test( userAgent ),
 	    ios = /iphone|ipod|ipad/.test( userAgent );
 
-	if( ios ) {
-	    if ( !standalone && safari ) {
-	        //browser
-	        alert("browser")
-	    } else if ( standalone && !safari ) {
-	        //standalone
-	        alert("standalone")
-	    } else if ( !standalone && !safari ) {
-	        //uiwebview
-	    };
-	} else {
-	    //not iOS
-	};
+		if( ios ) {
+		    if ( !standalone && safari ) {
+		        //browser
+		        downloadPage()
+		    } else if ( standalone && !safari ) {
+		        //standalone
+		    } else if ( !standalone && !safari ) {
+		        //uiwebview
+		    };
+		} else {
+		    //not iOS
+		};
+
+		function downloadPage() {
+			download.style.display = "block"
+		};
 	</script>
 
 </body>
