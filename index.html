@@ -68,10 +68,15 @@
 
 		loadJSON("data.json", function(response) {
 	        var json = JSON.parse(response);
-	        headerBg.src = json.headerBg
+	        getHeaderImg(json.headerBg)
 	        title.innerHTML = json.headerTitle
 	        phoneNumber.href = json.phoneNumber
 	    });
+
+	    //get header img
+	    function getHeaderImg(imageAddress) {
+	    	headerBg.src = imageAddress
+	    };
 
 		//differ browser
 	    var standalone = window.navigator.standalone,
