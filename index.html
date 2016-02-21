@@ -25,6 +25,7 @@
 	<header>
 		<img src="">
 		<h1>...</h1>
+		<p></p>
 	</header>
 
 	<div id="action">
@@ -41,36 +42,37 @@
 		<p>添加到主屏幕<br>⇣</p>
 	</div>
 
+	<script type="text/javascript" src="load_json.js"></script>
 	<script type="text/javascript">
 		document.ontouchmove = function(e) {e.preventDefault()};
 		var screenWidth = screen.width + "px"
 		var header = document.getElementsByTagName("header")[0]
 		header.style.height = screenWidth
 		var title = document.getElementsByTagName("h1")[0]
+		var weather = header.children[2]
+
 		var action = document.getElementById("action")
 		var headerBg = document.getElementsByTagName("img")[0]
 		var phoneNumber = document.getElementById("call")
 		var download = document.getElementById("download")
+		var weatherAPI = "http://www.weather.com.cn/data/cityinfo/101020100.html"
 
-		//load json
-		function loadJSON(file, callback) {   
-			var xobj = new XMLHttpRequest();
-			xobj.overrideMimeType("application/json");
-			xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
-			xobj.onreadystatechange = function () {
-			      if (xobj.readyState == 4 && xobj.status == "200") {
-			        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-			        callback(xobj.responseText);
-			      }
-			};
-			xobj.send(null);
-		}
-
+		//get basic info
 		loadJSON("data.json", function(response) {
 	        var json = JSON.parse(response);
 	        getHeaderImg(json.headerBg)
 	        title.innerHTML = json.headerTitle
 	        phoneNumber.href = json.phoneNumber
+	    });
+
+	    //get weather
+	    loadJSON(weatherAPI, function(response) {
+	        var json = JSON.parse(response);
+	        var temp1 = json.weatherinfo.temp1
+	        var temp2 = json.weatherinfo.temp2
+	        var temp = temp2.substring(0,temp2.length-1) + "~" + temp1.substring(0,temp1.length-1) + "℃"
+	        var weatherData = json.weatherinfo.weather
+	        weather.innerHTML = temp+" "+weatherData
 	    });
 
 	    //get header img

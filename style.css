@@ -42,6 +42,18 @@ header h1 {
 	vertical-align: middle;
 }
 
+header p {
+	position: absolute;
+	font-family: PingFangSC-Thin;
+	font-weight: bold;
+	font-size: 14px;
+	color: #FFFFFF;
+	left: 0;
+	right: 0;
+	top: 55%;
+	text-align: center;
+}
+
 #action {
 	width: 100%;
 	height: 120px;
