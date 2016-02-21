@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Automan❤️Amanda</title>
+	<!-- CONFIGURATION -->
+
+    <!-- Allow web app to be run in full-screen mode. -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Make the app title different than the page title. -->
+<<<<<<< HEAD
+    <meta name="apple-mobile-web-app-title" content="❤️Automan❤️">
+=======
+    <meta name="apple-mobile-web-app-title" content="❤️猫爸❤️">
+>>>>>>> getweather
+    <!-- Configure the status bar. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Set the viewport. -->
+    <meta name="viewport" content="initial-scale=1">
+    <!-- iPhone 6 Plus icon -->
+    <link href="icon.png" sizes="120x120" rel="apple-touch-icon-precomposed">
+    <!-- iPhone 6 Plus portrait startup image -->
+<<<<<<< HEAD
+    <link href="https://placehold.it/1242x2148" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" rel="apple-touch-startup-image">
+    <!-- style -->
+    <style type="text/css">
+    	body,div,h1,h2,h3,h4,h5,p,img,a,ol {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background-color: #EAEAEA;
+		}
+
+		header {
+			position: relative;
+			background-color: black;
+			width: 100%;
+		}
+
+		header img {
+			position: absolute;
+			display: block;
+			height: 100%;
+			opacity: 0.7;
+		}
+
+		header h1 {
+			position: absolute;
+			font-family: PingFangSC-Thin;
+			font-weight: normal;
+			font-size: 24px;
+			color: #FFFFFF;
+			line-height: 33px;
+			width: 80%;
+			margin: auto;
+			height: 33px;
+			text-align: center;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			vertical-align: middle;
+		}
+
+		#action {
+			width: 100%;
+			height: 120px;
+		}
+
+		#action a {
+			background-color: white;
+			display: block;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 30px;
+			width: 50%;
+			height: 100%;
+			float: left;
+		}
+
+		#call {
+			background-image: url(icon_call.svg);
+		}
+
+		#message {
+			background-image: url(icon_message.svg);
+		}
+
+		footer {
+			font-family: PingFangSC-Thin;
+			font-size: 18px;
+			text-align: center;
+			margin-top: 66px;
+		}
+    </style>
+=======
+    <link href="startup .png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" rel="apple-touch-startup-image">
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+>>>>>>> getweather
+</head>
+<body>
+
+	<header>
+<<<<<<< HEAD
+		<img src="header_bg.jpg">
+		<h1>Happy Valentine's Day</h1>
+=======
+		<img src="">
+		<h1>...</h1>
+		<p></p>
+>>>>>>> getweather
+	</header>
+
+	<div id="action">
+		<a id="call" href="tel:10086"></a>
+<<<<<<< HEAD
+=======
+		<a id="facetime" href="facetime://18621579857"></a>
+		<a id="sms" href="sms:18621579857"></a>
+>>>>>>> getweather
+		<a id="message" href="weixin://"></a>
+	</div>
+
+	<footer>Automan❤️Amanda</footer>
+
+<<<<<<< HEAD
+	<script type="text/javascript">
+		var screenWidth = screen.width + "px"
+		var header = document.getElementsByTagName("header")[0]
+		header.style.height = screenWidth
+=======
+	<div id="download">
+		<img src="icon.png">
+		<p>添加到主屏幕<br>⇣</p>
+	</div>
+
+	<script type="text/javascript" src="load_json.js"></script>
+	<script type="text/javascript">
+		document.ontouchmove = function(e) {e.preventDefault()};
+		var screenWidth = screen.width + "px"
+		var header = document.getElementsByTagName("header")[0]
+		header.style.height = screenWidth
+		var title = document.getElementsByTagName("h1")[0]
+		var weather = header.children[2]
+
+		var action = document.getElementById("action")
+		var headerBg = document.getElementsByTagName("img")[0]
+		var phoneNumber = document.getElementById("call")
+		var download = document.getElementById("download")
+		var weatherAPI = "http://www.weather.com.cn/data/cityinfo/101020100.html"
+
+		//get basic info
+		loadJSON("data.json", function(response) {
+	        var json = JSON.parse(response);
+	        getHeaderImg(json.headerBg)
+	        title.innerHTML = json.headerTitle
+	        phoneNumber.href = json.phoneNumber
+	    });
+
+	    //get weather
+	    loadJSON(weatherAPI, function(response) {
+	        var json = JSON.parse(response);
+	        var temp1 = json.weatherinfo.temp1
+	        var temp2 = json.weatherinfo.temp2
+	        var temp = temp2.substring(0,temp2.length-1) + "~" + temp1.substring(0,temp1.length-1) + "℃"
+	        var weatherData = json.weatherinfo.weather
+	        weather.innerHTML = temp+" "+weatherData
+	    });
+
+	    //get header img
+	    function getHeaderImg(imageAddress) {
+	    	headerBg.src = imageAddress
+	    };
+
+		//differ browser
+	    var standalone = window.navigator.standalone,
+	    userAgent = window.navigator.userAgent.toLowerCase(),
+	    safari = /safari/.test( userAgent ),
+	    ios = /iphone|ipod|ipad/.test( userAgent );
+
+		if( ios ) {
+		    if ( !standalone && safari ) {
+		        //browser
+		        downloadPage()
+		    } else if ( standalone && !safari ) {
+		        //standalone
+		    } else if ( !standalone && !safari ) {
+		        //uiwebview
+		    };
+		} else {
+		    //not iOS
+		};
+
+		function downloadPage() {
+			download.style.display = "block"
+		};
+>>>>>>> getweather
+	</script>
+
+</body>
+</html>
