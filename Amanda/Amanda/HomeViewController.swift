@@ -35,10 +35,12 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
         //set header img
         headerImg = UIImageView(frame: CGRectMake(0, 0, header!.frame.size.width, header!.frame.size.height))
         let imgAddress = NSURL(string: "https://source.unsplash.com/random")
-        let data = NSData(contentsOfURL: imgAddress!)
-        if data != nil {
-            headerImg!.image = UIImage(data: data!)
-        }
+        headerImg!.setImageWithUrl(imgAddress!)
+//        let data = NSData(contentsOfURL: imgAddress!)
+//        if data != nil {
+//            headerImg!.image = UIImage(data: data!)
+//        }
+        //get unsplash image
         headerImg!.contentMode = UIViewContentMode.ScaleAspectFill
         headerImg!.alpha = 0.5
         header!.addSubview(headerImg!)
@@ -56,7 +58,7 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
         //weather label
         let weatherHeight: CGFloat = 40
         weatherLabel = UILabel(frame: CGRectMake(0,headerTitle!.frame.origin.y + headerTitle!.frame.size.height - 5,screen.width,weatherHeight))
-        weatherLabel!.text = "这里是天气"
+        weatherLabel!.text = ""
         weatherLabel!.textAlignment = NSTextAlignment.Center
         weatherLabel!.textColor = UIColor.whiteColor()
         weatherLabel!.font = UIFont(name: medium, size: 12)
@@ -65,12 +67,16 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
         Alamofire.request(.GET, "http://www.weather.com.cn/data/cityinfo/101020100.html")
             .responseJSON { response in
                 if let data = response.result.value {
+                    print(data)
                     self.jsonData = data as? NSData
                     let dic: NSDictionary = (data["weatherinfo"] as? NSDictionary)!
                     let temp1: NSString = dic["temp1"] as! NSString
                     let temp2: NSString = dic["temp2"] as! NSString
                     let weather: NSString = dic["weather"] as! NSString
                     self.weatherLabel!.text = "\(temp2)~\(temp1) \(weather)"
+                    print(self.weatherLabel!.text)
+                } else {
+                    print("newtwork erro")
                 }
         }
         
