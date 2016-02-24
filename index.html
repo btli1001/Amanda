@@ -42,8 +42,6 @@
 		<p>添加到主屏幕<br>⇣</p>
 	</div>
 
-	<iframe id="iframe" src="http://www.weather.com.cn/data/cityinfo/101020100.html"></iframe>
-
 	<script type="text/javascript" src="load_json.js"></script>
 	<script type="text/javascript">
 		document.ontouchmove = function(e) {e.preventDefault()};
@@ -57,16 +55,7 @@
 		var headerBg = document.getElementsByTagName("img")[0]
 		var phoneNumber = document.getElementById("call")
 		var download = document.getElementById("download")
-
-		var iframe = document.getElementById('iframe');
 		var weatherAPI = "http://www.weather.com.cn/data/cityinfo/101020100.html"
-
-		iframe.onload = function() {
-		    iframe.onload = function(){
-		        weatherAPI = iframe.contentWindow.name;
-		    }
-		    iframe.src = 'about:blank';
-		};
 
 		//get basic info
 		loadJSON("data.json", function(response) {

@@ -1,0 +1,751 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A505FFE1C7D6E4500361DE3 /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A505FFD1C7D6E4500361DE3 /* PersonalInfo.swift */; };
+		4A5060061C7D8D9400361DE3 /* Funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5060051C7D8D9400361DE3 /* Funcs.swift */; };
+		4AEB0D591C7C3B470066A711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D581C7C3B470066A711 /* AppDelegate.swift */; };
+		4AEB0D601C7C3B470066A711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB0D5F1C7C3B470066A711 /* Assets.xcassets */; };
+		4AEB0D6E1C7C3B470066A711 /* AmandaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D6D1C7C3B470066A711 /* AmandaTests.swift */; };
+		4AEB0D791C7C3B470066A711 /* AmandaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D781C7C3B470066A711 /* AmandaUITests.swift */; };
+		4AEB0D871C7C403F0066A711 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D861C7C403F0066A711 /* HomeViewController.swift */; };
+		4AEB0D891C7C40BF0066A711 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D881C7C40BF0066A711 /* Colors.swift */; };
+		4AEB0D8D1C7C41320066A711 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D8C1C7C41320066A711 /* MasterViewController.swift */; };
+		4AEB0D8F1C7C41F60066A711 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D8E1C7C41F60066A711 /* Size.swift */; };
+		4AEB0D911C7C6E090066A711 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D901C7C6E090066A711 /* Fonts.swift */; };
+		4AEB0DAA1C7C71820066A711 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEB0D9D1C7C71410066A711 /* Alamofire.framework */; };
+		4AEB0DAB1C7C71820066A711 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEB0D9D1C7C71410066A711 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4AEB0D6A1C7C3B470066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D4D1C7C3B470066A711 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AEB0D541C7C3B470066A711;
+			remoteInfo = Amanda;
+		};
+		4AEB0D751C7C3B470066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D4D1C7C3B470066A711 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AEB0D541C7C3B470066A711;
+			remoteInfo = Amanda;
+		};
+		4AEB0D9C1C7C71410066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		4AEB0D9E1C7C71410066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		4AEB0DA01C7C71410066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		4AEB0DA21C7C71410066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		4AEB0DA41C7C71410066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS";
+		};
+		4AEB0DA61C7C71410066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS Tests";
+		};
+		4AEB0DA81C7C71410066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4202FE01B667AA100C997FB;
+			remoteInfo = "Alamofire watchOS";
+		};
+		4AEB0DAC1C7C71820066A711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4AEB0DAE1C7C71820066A711 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4AEB0DAB1C7C71820066A711 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4A505FFD1C7D6E4500361DE3 /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
+		4A5060051C7D8D9400361DE3 /* Funcs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Funcs.swift; sourceTree = "<group>"; };
+		4AEB0D551C7C3B470066A711 /* Amanda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amanda.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AEB0D581C7C3B470066A711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4AEB0D5F1C7C3B470066A711 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4AEB0D641C7C3B470066A711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AEB0D691C7C3B470066A711 /* AmandaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmandaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AEB0D6D1C7C3B470066A711 /* AmandaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmandaTests.swift; sourceTree = "<group>"; };
+		4AEB0D6F1C7C3B470066A711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AEB0D741C7C3B470066A711 /* AmandaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmandaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AEB0D781C7C3B470066A711 /* AmandaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmandaUITests.swift; sourceTree = "<group>"; };
+		4AEB0D7A1C7C3B470066A711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AEB0D861C7C403F0066A711 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4AEB0D881C7C40BF0066A711 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4AEB0D8C1C7C41320066A711 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		4AEB0D8E1C7C41F60066A711 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		4AEB0D901C7C6E090066A711 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AEB0D521C7C3B470066A711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AEB0DAA1C7C71820066A711 /* Alamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEB0D661C7C3B470066A711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEB0D711C7C3B470066A711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AEB0D4C1C7C3B470066A711 = {
+			isa = PBXGroup;
+			children = (
+				4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */,
+				4AEB0D571C7C3B470066A711 /* Amanda */,
+				4AEB0D6C1C7C3B470066A711 /* AmandaTests */,
+				4AEB0D771C7C3B470066A711 /* AmandaUITests */,
+				4AEB0D561C7C3B470066A711 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AEB0D561C7C3B470066A711 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB0D551C7C3B470066A711 /* Amanda.app */,
+				4AEB0D691C7C3B470066A711 /* AmandaTests.xctest */,
+				4AEB0D741C7C3B470066A711 /* AmandaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AEB0D571C7C3B470066A711 /* Amanda */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB0D581C7C3B470066A711 /* AppDelegate.swift */,
+				4AEB0D8C1C7C41320066A711 /* MasterViewController.swift */,
+				4AEB0D861C7C403F0066A711 /* HomeViewController.swift */,
+				4A505FFD1C7D6E4500361DE3 /* PersonalInfo.swift */,
+				4AEB0D901C7C6E090066A711 /* Fonts.swift */,
+				4A5060051C7D8D9400361DE3 /* Funcs.swift */,
+				4AEB0D881C7C40BF0066A711 /* Colors.swift */,
+				4AEB0D8E1C7C41F60066A711 /* Size.swift */,
+				4AEB0D5F1C7C3B470066A711 /* Assets.xcassets */,
+				4AEB0D641C7C3B470066A711 /* Info.plist */,
+			);
+			path = Amanda;
+			sourceTree = "<group>";
+		};
+		4AEB0D6C1C7C3B470066A711 /* AmandaTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB0D6D1C7C3B470066A711 /* AmandaTests.swift */,
+				4AEB0D6F1C7C3B470066A711 /* Info.plist */,
+			);
+			path = AmandaTests;
+			sourceTree = "<group>";
+		};
+		4AEB0D771C7C3B470066A711 /* AmandaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB0D781C7C3B470066A711 /* AmandaUITests.swift */,
+				4AEB0D7A1C7C3B470066A711 /* Info.plist */,
+			);
+			path = AmandaUITests;
+			sourceTree = "<group>";
+		};
+		4AEB0D931C7C71410066A711 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB0D9D1C7C71410066A711 /* Alamofire.framework */,
+				4AEB0D9F1C7C71410066A711 /* Alamofire iOS Tests.xctest */,
+				4AEB0DA11C7C71410066A711 /* Alamofire.framework */,
+				4AEB0DA31C7C71410066A711 /* Alamofire OSX Tests.xctest */,
+				4AEB0DA51C7C71410066A711 /* Alamofire.framework */,
+				4AEB0DA71C7C71410066A711 /* Alamofire tvOS Tests.xctest */,
+				4AEB0DA91C7C71410066A711 /* Alamofire.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AEB0D541C7C3B470066A711 /* Amanda */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AEB0D7D1C7C3B470066A711 /* Build configuration list for PBXNativeTarget "Amanda" */;
+			buildPhases = (
+				4AEB0D511C7C3B470066A711 /* Sources */,
+				4AEB0D521C7C3B470066A711 /* Frameworks */,
+				4AEB0D531C7C3B470066A711 /* Resources */,
+				4AEB0DAE1C7C71820066A711 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AEB0DAD1C7C71820066A711 /* PBXTargetDependency */,
+			);
+			name = Amanda;
+			productName = Amanda;
+			productReference = 4AEB0D551C7C3B470066A711 /* Amanda.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4AEB0D681C7C3B470066A711 /* AmandaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AEB0D801C7C3B470066A711 /* Build configuration list for PBXNativeTarget "AmandaTests" */;
+			buildPhases = (
+				4AEB0D651C7C3B470066A711 /* Sources */,
+				4AEB0D661C7C3B470066A711 /* Frameworks */,
+				4AEB0D671C7C3B470066A711 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AEB0D6B1C7C3B470066A711 /* PBXTargetDependency */,
+			);
+			name = AmandaTests;
+			productName = AmandaTests;
+			productReference = 4AEB0D691C7C3B470066A711 /* AmandaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4AEB0D731C7C3B470066A711 /* AmandaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AEB0D831C7C3B470066A711 /* Build configuration list for PBXNativeTarget "AmandaUITests" */;
+			buildPhases = (
+				4AEB0D701C7C3B470066A711 /* Sources */,
+				4AEB0D711C7C3B470066A711 /* Frameworks */,
+				4AEB0D721C7C3B470066A711 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AEB0D761C7C3B470066A711 /* PBXTargetDependency */,
+			);
+			name = AmandaUITests;
+			productName = AmandaUITests;
+			productReference = 4AEB0D741C7C3B470066A711 /* AmandaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AEB0D4D1C7C3B470066A711 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Automan;
+				TargetAttributes = {
+					4AEB0D541C7C3B470066A711 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = MC9DKB6567;
+					};
+					4AEB0D681C7C3B470066A711 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 65G58XU629;
+						TestTargetID = 4AEB0D541C7C3B470066A711;
+					};
+					4AEB0D731C7C3B470066A711 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 65G58XU629;
+						TestTargetID = 4AEB0D541C7C3B470066A711;
+					};
+				};
+			};
+			buildConfigurationList = 4AEB0D501C7C3B470066A711 /* Build configuration list for PBXProject "Amanda" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AEB0D4C1C7C3B470066A711;
+			productRefGroup = 4AEB0D561C7C3B470066A711 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4AEB0D931C7C71410066A711 /* Products */;
+					ProjectRef = 4AEB0D921C7C71410066A711 /* Alamofire.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				4AEB0D541C7C3B470066A711 /* Amanda */,
+				4AEB0D681C7C3B470066A711 /* AmandaTests */,
+				4AEB0D731C7C3B470066A711 /* AmandaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4AEB0D9D1C7C71410066A711 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 4AEB0D9C1C7C71410066A711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AEB0D9F1C7C71410066A711 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = 4AEB0D9E1C7C71410066A711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AEB0DA11C7C71410066A711 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 4AEB0DA01C7C71410066A711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AEB0DA31C7C71410066A711 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = 4AEB0DA21C7C71410066A711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AEB0DA51C7C71410066A711 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 4AEB0DA41C7C71410066A711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AEB0DA71C7C71410066A711 /* Alamofire tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire tvOS Tests.xctest";
+			remoteRef = 4AEB0DA61C7C71410066A711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AEB0DA91C7C71410066A711 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 4AEB0DA81C7C71410066A711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AEB0D531C7C3B470066A711 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AEB0D601C7C3B470066A711 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEB0D671C7C3B470066A711 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEB0D721C7C3B470066A711 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AEB0D511C7C3B470066A711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5060061C7D8D9400361DE3 /* Funcs.swift in Sources */,
+				4AEB0D8D1C7C41320066A711 /* MasterViewController.swift in Sources */,
+				4AEB0D8F1C7C41F60066A711 /* Size.swift in Sources */,
+				4AEB0D591C7C3B470066A711 /* AppDelegate.swift in Sources */,
+				4AEB0D891C7C40BF0066A711 /* Colors.swift in Sources */,
+				4A505FFE1C7D6E4500361DE3 /* PersonalInfo.swift in Sources */,
+				4AEB0D911C7C6E090066A711 /* Fonts.swift in Sources */,
+				4AEB0D871C7C403F0066A711 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEB0D651C7C3B470066A711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AEB0D6E1C7C3B470066A711 /* AmandaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEB0D701C7C3B470066A711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AEB0D791C7C3B470066A711 /* AmandaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4AEB0D6B1C7C3B470066A711 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AEB0D541C7C3B470066A711 /* Amanda */;
+			targetProxy = 4AEB0D6A1C7C3B470066A711 /* PBXContainerItemProxy */;
+		};
+		4AEB0D761C7C3B470066A711 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AEB0D541C7C3B470066A711 /* Amanda */;
+			targetProxy = 4AEB0D751C7C3B470066A711 /* PBXContainerItemProxy */;
+		};
+		4AEB0DAD1C7C71820066A711 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = 4AEB0DAC1C7C71820066A711 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4A505FEF1C7D45BE00361DE3 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				New_Setting = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "ad hoc distribution";
+		};
+		4A505FF01C7D45BE00361DE3 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = Amanda/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = automan.Amanda;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "ad hoc distribution";
+		};
+		4A505FF11C7D45BE00361DE3 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AmandaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = automan.AmandaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amanda.app/Amanda";
+			};
+			name = "ad hoc distribution";
+		};
+		4A505FF21C7D45BE00361DE3 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AmandaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = automan.AmandaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Amanda;
+				USES_XCTRUNNER = YES;
+			};
+			name = "ad hoc distribution";
+		};
+		4AEB0D7B1C7C3B470066A711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				New_Setting = "";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4AEB0D7C1C7C3B470066A711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				New_Setting = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4AEB0D7E1C7C3B470066A711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = Amanda/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = automan.Amanda;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4AEB0D7F1C7C3B470066A711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = Amanda/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = automan.Amanda;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4AEB0D811C7C3B470066A711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AmandaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = automan.AmandaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amanda.app/Amanda";
+			};
+			name = Debug;
+		};
+		4AEB0D821C7C3B470066A711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AmandaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = automan.AmandaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amanda.app/Amanda";
+			};
+			name = Release;
+		};
+		4AEB0D841C7C3B470066A711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AmandaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = automan.AmandaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Amanda;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		4AEB0D851C7C3B470066A711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AmandaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = automan.AmandaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Amanda;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AEB0D501C7C3B470066A711 /* Build configuration list for PBXProject "Amanda" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AEB0D7B1C7C3B470066A711 /* Debug */,
+				4AEB0D7C1C7C3B470066A711 /* Release */,
+				4A505FEF1C7D45BE00361DE3 /* ad hoc distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AEB0D7D1C7C3B470066A711 /* Build configuration list for PBXNativeTarget "Amanda" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AEB0D7E1C7C3B470066A711 /* Debug */,
+				4AEB0D7F1C7C3B470066A711 /* Release */,
+				4A505FF01C7D45BE00361DE3 /* ad hoc distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AEB0D801C7C3B470066A711 /* Build configuration list for PBXNativeTarget "AmandaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AEB0D811C7C3B470066A711 /* Debug */,
+				4AEB0D821C7C3B470066A711 /* Release */,
+				4A505FF11C7D45BE00361DE3 /* ad hoc distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AEB0D831C7C3B470066A711 /* Build configuration list for PBXNativeTarget "AmandaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AEB0D841C7C3B470066A711 /* Debug */,
+				4AEB0D851C7C3B470066A711 /* Release */,
+				4A505FF21C7D45BE00361DE3 /* ad hoc distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AEB0D4D1C7C3B470066A711 /* Project object */;
+}
