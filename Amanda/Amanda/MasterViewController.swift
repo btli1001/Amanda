@@ -14,7 +14,7 @@ class MasterViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = bgColor
+        self.view.backgroundColor = Colors().bgColor
     }
 
     override func didReceiveMemoryWarning() {

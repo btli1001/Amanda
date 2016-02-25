@@ -10,14 +10,17 @@ import UIKit
 import Alamofire
 import MessageUI
 
-class HomeViewController: MasterViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MFMessageComposeViewControllerDelegate {
+class HomeViewController: MasterViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MFMessageComposeViewControllerDelegate, UIScrollViewDelegate {
     var header: UIView?
     var headerImg: UIImageView?
     var headerTitle: UILabel?
-    var weatherLabel: UILabel?
+    var subtitle: UILabel?
     var jsonData: NSData?
+    var scrollView: UIScrollView?
     var collectionView: UICollectionView?
     var footerLabel: UILabel?
+    let square: CGFloat = Size().screen.width / 2 - 0.5
+    let headerHeight = Size().screen.height - Size().screen.width
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,21 +28,16 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
         // Do any additional setup after loading the view.
         //status bar & bg color
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        self.view.backgroundColor = bgColor
+        self.view.backgroundColor = Colors().bgColor
         
         //header
         //set header bg
         header = UIView()
-        header!.frame = CGRectMake(0, 0, screen.width, screen.width)
-        header!.backgroundColor = UIColor.blackColor()
+        header!.frame = CGRectMake(0, 0, Size().screen.width, headerHeight)
+        header!.backgroundColor = UIColor.grayColor()
+//        header!.layer.anchorPoint = CGPoint(x: 0, y: 0)
         //set header img
         headerImg = UIImageView(frame: CGRectMake(0, 0, header!.frame.size.width, header!.frame.size.height))
-        let imgAddress = NSURL(string: "https://source.unsplash.com/random")
-        headerImg!.setImageWithUrl(imgAddress!)
-//        let data = NSData(contentsOfURL: imgAddress!)
-//        if data != nil {
-//            headerImg!.image = UIImage(data: data!)
-//        }
         //get unsplash image
         headerImg!.contentMode = UIViewContentMode.ScaleAspectFill
         headerImg!.alpha = 0.5
@@ -47,62 +45,55 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
         //add header to screen
         self.view.addSubview(header!)
         //set title
-        let titleHeight: CGFloat = 34
-        headerTitle = UILabel(frame: CGRectMake(0,(screen.width - titleHeight) / 2,screen.width,titleHeight))
-        headerTitle!.text = "这里是标题"
+        let titleHeight: CGFloat = 45
+        headerTitle = UILabel(frame: CGRectMake(0,(header!.frame.size.height - titleHeight) / 2 - 10,Size().screen.width,titleHeight))
         headerTitle!.textColor = UIColor.whiteColor()
         headerTitle!.textAlignment = NSTextAlignment.Center
-        headerTitle!.font = UIFont(name: light, size: 24)
+        headerTitle!.font = UIFont(name: Fonts().light, size: 32)
         header!.addSubview(headerTitle!)
         //set weather
         //weather label
         let weatherHeight: CGFloat = 40
-        weatherLabel = UILabel(frame: CGRectMake(0,headerTitle!.frame.origin.y + headerTitle!.frame.size.height - 5,screen.width,weatherHeight))
-        weatherLabel!.text = ""
-        weatherLabel!.textAlignment = NSTextAlignment.Center
-        weatherLabel!.textColor = UIColor.whiteColor()
-        weatherLabel!.font = UIFont(name: medium, size: 12)
-        header!.addSubview(weatherLabel!)
+        let weatherWidth: CGFloat = Size().screen.width * 0.9
+        subtitle = UILabel(frame: CGRectMake((Size().screen.width - weatherWidth) / 2,headerTitle!.frame.origin.y + headerTitle!.frame.size.height,weatherWidth,weatherHeight))
+        subtitle!.numberOfLines = 0
+        subtitle!.textAlignment = NSTextAlignment.Center
+        subtitle!.textColor = UIColor.whiteColor()
+        subtitle!.font = UIFont(name: Fonts().semibold, size: 14)
+        subtitle!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        header!.addSubview(subtitle!)
         //get weather
-        Alamofire.request(.GET, "http://www.weather.com.cn/data/cityinfo/101020100.html")
-            .responseJSON { response in
-                if let data = response.result.value {
-                    print(data)
-                    self.jsonData = data as? NSData
-                    let dic: NSDictionary = (data["weatherinfo"] as? NSDictionary)!
-                    let temp1: NSString = dic["temp1"] as! NSString
-                    let temp2: NSString = dic["temp2"] as! NSString
-                    let weather: NSString = dic["weather"] as! NSString
-                    self.weatherLabel!.text = "\(temp2)~\(temp1) \(weather)"
-                    print(self.weatherLabel!.text)
-                } else {
-                    print("newtwork erro")
-                }
-        }
+        getData()
         
-        //set buttons
+        //set scroll view
+        scrollView = UIScrollView(frame: CGRectMake(0,0,Size().screen.width,Size().screen.height))
+        scrollView!.alwaysBounceVertical = true
+        scrollView!.contentSize = CGSize(width: Size().screen.width, height: Size().screen.height)
+        scrollView!.delegate = self
+        self.view.addSubview(scrollView!)
+        
+        //add pull refresh
+        let loadView = DGElasticPullToRefreshLoadingViewCircle()
+        loadView.tintColor = UIColor.whiteColor()
+        scrollView!.dg_addPullToRefreshWithActionHandler({
+            self.clearCache()
+            self.getData()
+            }, loadingView: loadView)
+        
         //set collection view
         //set layout
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: screen.width / 4, height: 120)
+        layout.itemSize = CGSize(width: square, height: square)
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 1
         //set collection view
-        collectionView = UICollectionView(frame: CGRectMake(0, screen.width, screen.width, 120), collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRectMake(0, Size().screen.height - Size().screen.width, Size().screen.width, Size().screen.width), collectionViewLayout: layout)
         collectionView!.delegate = self
         collectionView!.dataSource = self
-        collectionView!.backgroundColor = UIColor.whiteColor()
+        collectionView!.backgroundColor = Colors().bgColor
         collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
-        self.view.addSubview(collectionView!)
-        
-        //set footer
-        let footerHeight: CGFloat = 17
-        footerLabel = UILabel(frame: CGRectMake(0,screen.height - footerHeight - 10,screen.width,footerHeight))
-        footerLabel!.text = "Automan❤️Amanda"
-        footerLabel!.font = UIFont(name: medium, size: 12)
-        footerLabel!.textAlignment = NSTextAlignment.Center
-        self.view.addSubview(footerLabel!)
+        scrollView!.addSubview(collectionView!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,6 +101,75 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
         // Dispose of any resources that can be recreated.
     }
     
+    deinit {
+        scrollView!.dg_removePullToRefresh()
+    }
+    
+    //get data
+    func getData() {
+        getImg()
+        getWeatherData()
+    }
+    
+    func clearCache() {
+        NSURLCache.sharedURLCache().removeAllCachedResponses()
+    }
+    
+    //get header img
+    func getImg() {
+        Alamofire.request(.GET, API().unsplashAPI, parameters: ["client_id": API().unsplashAppID])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                //print(response.response) // URL response
+                //print(response.data)     // server data
+                //print(response.result)   // result of response serialization
+                
+                if let reponseJSON = response.result.value {
+                    let json = JSON(reponseJSON)
+                    print(json["urls"]["full"])
+                    let url = NSURL(string: json["urls"]["small"].string!)
+                    //self.headerImg!.setImageWithUrl(url!)
+                    self.headerImg!.image = UIImage(data: NSData(contentsOfURL: url!)!)
+                    self.scrollView!.dg_stopLoading()
+                }
+        }
+    }
+    
+    //get weather data
+    func getWeatherData() {
+        Alamofire.request(.GET, API().weatherAPIURL, headers: ["apikey": API().baiduAPIKey], parameters: ["city": API().city])
+            .responseJSON { response in
+                if let reponseJSON = response.result.value {
+                    let json = JSON(reponseJSON)
+                    let temp = json["HeWeather data service 3.0"][0]["daily_forecast"][0]["tmp"]["min"].string! + "~" + json["HeWeather data service 3.0"][0]["daily_forecast"][0]["tmp"]["max"].string! + "℃"
+                    let cond = json["HeWeather data service 3.0"][0]["daily_forecast"][0]["cond"]["txt_d"].string!
+                    self.subtitle!.text = json["HeWeather data service 3.0"][0]["suggestion"]["comf"]["txt"].string!
+                    self.subtitle!.sizeToFit()
+                    self.headerTitle!.text = temp + " " + cond
+//                    self.scrollView!.dg_stopLoading()
+                } else {
+                    self.headerTitle!.text = "网络抽风了,稍等"
+                }
+        }
+    }
+    
+    //scroll view delegate funciton
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let alphaRate = -scrollView.contentOffset.y * 0.008
+        let heightRate = 1 + -scrollView.contentOffset.y * 0.005
+        
+        if scrollView.contentOffset.y < 0 {
+            headerImg!.frame.size.height = headerHeight * heightRate
+            header!.frame.size.height = headerHeight * heightRate
+            headerTitle!.alpha = 1 - alphaRate
+            subtitle!.alpha = 1 - alphaRate
+        } else {
+            headerTitle!.alpha = 1 + alphaRate
+            subtitle!.alpha = 1 + alphaRate
+        }
+    }
+    
+    //collection view delegate function
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as UICollectionViewCell
         switch indexPath.row {
@@ -134,8 +194,9 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
     //set action button function
     func actionBtn(iconAddress: String) -> UIButton {
         //layout
-        let btn: UIButton = UIButton(frame: CGRectMake(0,0,screen.width / 4,120))
+        let btn: UIButton = UIButton(frame: CGRectMake(0,0,square,square))
         btn.setImage(UIImage(named: iconAddress), forState: UIControlState.Normal)
+        btn.backgroundColor = UIColor.whiteColor()
         //target
         switch iconAddress {
         case "iconCall":
@@ -160,17 +221,17 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
     
     //action function
     func call(sender: UIButton) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(PersonalInfo().phoneNumber)")!)
     }
     
     func facetime() {
-        UIApplication.sharedApplication().openURL(NSURL(string: "facetime://\(phoneNumber)")!)
+        UIApplication.sharedApplication().openURL(NSURL(string: "facetime://\(PersonalInfo().phoneNumber)")!)
     }
     
     func message() {
         let messageComposer = MFMessageComposeViewController()
         messageComposer.messageComposeDelegate = self
-        messageComposer.recipients = [phoneNumber]
+        messageComposer.recipients = [PersonalInfo().phoneNumber]
         messageComposer.body = "老公, "
         presentViewController(messageComposer, animated: true, completion: nil)
     }

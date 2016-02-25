@@ -9,4 +9,8 @@
 import Foundation
 import UIKit
 
+struct Colors {
+    <#properties and methods#>
+}
+
 public let bgColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
