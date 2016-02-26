@@ -19,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = HomeViewController()
+//        self.window?.rootViewController = HomeViewController()
+        if LocalData().userDefaults.objectForKey(LocalData().keyUser) != nil {
+            self.window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+        } else {
+            self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        }
         return true
     }
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A5060081C7D987600361DE3 /* UIImageView+AFNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5060071C7D987600361DE3 /* UIImageView+AFNetworking.swift */; };
 		4A6DA6C71C7DC02A00F5C79C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6DA6BA1C7DBF1800F5C79C /* Alamofire.framework */; };
 		4A6DA6C81C7DC02A00F5C79C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6DA6BA1C7DBF1800F5C79C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A7433B81C7DE5890053DF30 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7433B71C7DE5890053DF30 /* CommonData.swift */; };
@@ -17,6 +16,7 @@
 		4A7C47311C7EE47E00AB8423 /* DGElasticPullToRefreshLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C472C1C7EE47E00AB8423 /* DGElasticPullToRefreshLoadingView.swift */; };
 		4A7C47321C7EE47E00AB8423 /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C472D1C7EE47E00AB8423 /* DGElasticPullToRefreshLoadingViewCircle.swift */; };
 		4A7C47331C7EE47E00AB8423 /* DGElasticPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C472E1C7EE47E00AB8423 /* DGElasticPullToRefreshView.swift */; };
+		4AD244761C7FEBFD00A35ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD244751C7FEBFD00A35ADD /* LoginViewController.swift */; };
 		4AEB0D591C7C3B470066A711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D581C7C3B470066A711 /* AppDelegate.swift */; };
 		4AEB0D601C7C3B470066A711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB0D5F1C7C3B470066A711 /* Assets.xcassets */; };
 		4AEB0D6E1C7C3B470066A711 /* AmandaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0D6D1C7C3B470066A711 /* AmandaTests.swift */; };
@@ -113,7 +113,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4A5060071C7D987600361DE3 /* UIImageView+AFNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AFNetworking.swift"; sourceTree = "<group>"; };
 		4A6DA6AF1C7DBF1800F5C79C /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		4A7433B71C7DE5890053DF30 /* CommonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		4A7433BF1C7DF0270053DF30 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		4A7C472C1C7EE47E00AB8423 /* DGElasticPullToRefreshLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshLoadingView.swift; sourceTree = "<group>"; };
 		4A7C472D1C7EE47E00AB8423 /* DGElasticPullToRefreshLoadingViewCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshLoadingViewCircle.swift; sourceTree = "<group>"; };
 		4A7C472E1C7EE47E00AB8423 /* DGElasticPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshView.swift; sourceTree = "<group>"; };
+		4AD244751C7FEBFD00A35ADD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4AEB0D551C7C3B470066A711 /* Amanda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amanda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEB0D581C7C3B470066A711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AEB0D5F1C7C3B470066A711 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -203,8 +203,8 @@
 				4AEB0D581C7C3B470066A711 /* AppDelegate.swift */,
 				4AEB0D8C1C7C41320066A711 /* MasterViewController.swift */,
 				4AEB0D861C7C403F0066A711 /* HomeViewController.swift */,
+				4AD244751C7FEBFD00A35ADD /* LoginViewController.swift */,
 				4A7433B71C7DE5890053DF30 /* CommonData.swift */,
-				4A5060071C7D987600361DE3 /* UIImageView+AFNetworking.swift */,
 				4A7433BF1C7DF0270053DF30 /* SwiftyJSON.swift */,
 				4A7C472A1C7EE47E00AB8423 /* DGElasticPullToRefreshConstants.swift */,
 				4A7C472B1C7EE47E00AB8423 /* DGElasticPullToRefreshExtensions.swift */,
@@ -434,10 +434,10 @@
 				4A7C47321C7EE47E00AB8423 /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */,
 				4A7433B81C7DE5890053DF30 /* CommonData.swift in Sources */,
 				4A7C47311C7EE47E00AB8423 /* DGElasticPullToRefreshLoadingView.swift in Sources */,
-				4A5060081C7D987600361DE3 /* UIImageView+AFNetworking.swift in Sources */,
 				4AEB0D871C7C403F0066A711 /* HomeViewController.swift in Sources */,
 				4A7C472F1C7EE47E00AB8423 /* DGElasticPullToRefreshConstants.swift in Sources */,
 				4A7C47331C7EE47E00AB8423 /* DGElasticPullToRefreshView.swift in Sources */,
+				4AD244761C7FEBFD00A35ADD /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

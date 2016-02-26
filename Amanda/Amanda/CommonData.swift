@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+struct LocalData {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let keyUser = "user"
+    let keyLogin = "login"
+    let valueUserAutoman = ["id":0, "name":"Automan", "callNumber":"15821386876"]
+    let valueUserAmanda = ["id":0, "name":"Automan", "callNumber":"18621579857"]
+}
+
 struct API {
     //weather
     let baiduAPIKey = "2cbde43749a4c5edf90819007111c32a"
@@ -39,10 +47,6 @@ struct Fonts {
     let ultralight = "PingFangSC-Ultralight"
 }
 
-struct PersonalInfo {
-    let phoneNumber = "18621579857"
-}
-
 public func btnBlink(sender: UIButton) {
     UIView.animateWithDuration(0.1, delay: 0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
         sender.alpha = 0
@@ -51,4 +55,16 @@ public func btnBlink(sender: UIButton) {
                 sender.alpha = 1
                 }, completion: {finished in})
     })
+}
+
+public func getLoginButton(user: String) -> UIButton {
+    let btn = UIButton()
+    btn.frame.size = CGSize(width: Size().screen.width * 0.7, height: 44)
+    btn.layer.borderColor = UIColor.blackColor().CGColor
+    btn.layer.borderWidth = 1.5
+    btn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+    btn.setTitle("."+user, forState: UIControlState.Normal)
+    btn.titleLabel?.font = UIFont(name: Fonts().medium, size: 14)
+    
+    return btn
 }

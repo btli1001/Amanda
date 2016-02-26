@@ -21,13 +21,16 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
     var footerLabel: UILabel?
     let square: CGFloat = Size().screen.width / 2 - 0.5
     let headerHeight = Size().screen.height - Size().screen.width
+    var btnLogout: UIButton?
+    let phoneNumber = LocalData().userDefaults.objectForKey(LocalData().keyUser)?.objectForKey("callNumber")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //print(phoneNumber!)
         // Do any additional setup after loading the view.
         //status bar & bg color
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        self.navigationController?.navigationBarHidden = true
         self.view.backgroundColor = Colors().bgColor
         
         //header
@@ -94,6 +97,19 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
         collectionView!.backgroundColor = Colors().bgColor
         collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
         scrollView!.addSubview(collectionView!)
+        
+        //log out btn
+        btnLogout = UIButton()
+        let logoutWith: CGFloat = 20
+        let logoutHeight: CGFloat = 20
+        btnLogout!.frame.size = CGSize(width: logoutWith, height: logoutHeight)
+        btnLogout!.frame.origin = CGPoint(x: Size().screen.width - logoutWith - 15, y: 30)
+//        btnLogout!.backgroundColor = UIColor.blackColor()
+//        btnLogout!.setTitle("logout", forState: .Normal)
+        btnLogout!.setImage(UIImage(named: "logout"), forState: UIControlState.Normal)
+        btnLogout!.addTarget(self, action: "logout:", forControlEvents: UIControlEvents.TouchUpInside)
+        scrollView!.addSubview(btnLogout!)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,16 +135,15 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
     func getImg() {
         Alamofire.request(.GET, API().unsplashAPI, parameters: ["client_id": API().unsplashAppID])
             .responseJSON { response in
-                print(response.request)  // original URL request
+                //print(response.request)  // original URL request
                 //print(response.response) // URL response
                 //print(response.data)     // server data
                 //print(response.result)   // result of response serialization
                 
                 if let reponseJSON = response.result.value {
                     let json = JSON(reponseJSON)
-                    print(json["urls"]["full"])
+                    //print(json["urls"]["full"])
                     let url = NSURL(string: json["urls"]["small"].string!)
-                    //self.headerImg!.setImageWithUrl(url!)
                     self.headerImg!.image = UIImage(data: NSData(contentsOfURL: url!)!)
                     self.scrollView!.dg_stopLoading()
                 }
@@ -141,12 +156,13 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
             .responseJSON { response in
                 if let reponseJSON = response.result.value {
                     let json = JSON(reponseJSON)
-                    let temp = json["HeWeather data service 3.0"][0]["daily_forecast"][0]["tmp"]["min"].string! + "~" + json["HeWeather data service 3.0"][0]["daily_forecast"][0]["tmp"]["max"].string! + "℃"
-                    let cond = json["HeWeather data service 3.0"][0]["daily_forecast"][0]["cond"]["txt_d"].string!
+                    //print(json)
+                    //let temp = json["HeWeather data service 3.0"][0]["daily_forecast"][0]["tmp"]["min"].string! + "~" + json["HeWeather data service 3.0"][0]["daily_forecast"][0]["tmp"]["max"].string! + "℃"
+                    let tempNow = json["HeWeather data service 3.0"][0]["now"]["tmp"].string!
+                    let cond = json["HeWeather data service 3.0"][0]["now"]["cond"]["txt"].string!
                     self.subtitle!.text = json["HeWeather data service 3.0"][0]["suggestion"]["comf"]["txt"].string!
                     self.subtitle!.sizeToFit()
-                    self.headerTitle!.text = temp + " " + cond
-//                    self.scrollView!.dg_stopLoading()
+                    self.headerTitle!.text = tempNow + "℃" + " " + cond
                 } else {
                     self.headerTitle!.text = "网络抽风了,稍等"
                 }
@@ -221,18 +237,18 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
     
     //action function
     func call(sender: UIButton) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(PersonalInfo().phoneNumber)")!)
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber!)")!)
     }
     
     func facetime() {
-        UIApplication.sharedApplication().openURL(NSURL(string: "facetime://\(PersonalInfo().phoneNumber)")!)
+        UIApplication.sharedApplication().openURL(NSURL(string: "facetime://\(phoneNumber!)")!)
     }
     
     func message() {
         let messageComposer = MFMessageComposeViewController()
         messageComposer.messageComposeDelegate = self
-        messageComposer.recipients = [PersonalInfo().phoneNumber]
-        messageComposer.body = "老公, "
+        messageComposer.recipients = ["\(phoneNumber!)"]
+        messageComposer.body = "亲爱的, "
         presentViewController(messageComposer, animated: true, completion: nil)
     }
     
@@ -242,6 +258,19 @@ class HomeViewController: MasterViewController, UICollectionViewDelegate, UIColl
     
     func btnSelected(sender: UIButton) {
         btnBlink(sender)
+    }
+    
+    func logout(sender: UIButton) {
+        let actionSheet = UIAlertController(title: "是否登出", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let actionLogout = UIAlertAction(title: "登出", style: UIAlertActionStyle.Destructive, handler: { handler in
+            LocalData().userDefaults.removeObjectForKey(LocalData().keyUser)
+            let login = LoginViewController()
+            self.navigationController?.setViewControllers([login], animated: true)
+        })
+        let actionCancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: {handler in})
+        actionSheet.addAction(actionLogout)
+        actionSheet.addAction(actionCancel)
+        self.presentViewController(actionSheet, animated: true, completion: {})
     }
     
 
